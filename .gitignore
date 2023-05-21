@@ -32,9 +32,6 @@ buildNumber.properties
 *~
 *.swp
 
-# Personal configuration files
-config.properties
-application.properties
 
 # Credentials and sensitive information
 credentials.properties
