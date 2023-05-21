@@ -1,4 +1,7 @@
+# Maven
 target/
+
+# Other files and directories to ignore
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -7,11 +10,9 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
-# https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
 
 # Test output directories
-/target/
 /build/
 /test-output/
 /logs/
@@ -31,7 +32,6 @@ buildNumber.properties
 *.tmp
 *~
 *.swp
-
 
 # Credentials and sensitive information
 credentials.properties
