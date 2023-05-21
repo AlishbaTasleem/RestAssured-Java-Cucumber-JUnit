@@ -4,8 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ef3db46-f02e-4d1f-aa28-3ac2aacb59c2" name="Changes" comment="Test commit">
+    <list default="true" id="8ef3db46-f02e-4d1f-aa28-3ac2aacb59c2" name="Changes" comment="Added new cases + fixed POST Activity">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/tests/hooks/Hooks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features/UpdateActivityById.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/framework/api/APIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/framework/api/APIClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/framework/models/ActivityModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/framework/models/ActivityModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/framework/services/ActivitiesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/framework/services/ActivitiesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/tests/stepdefinitions/StepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/tests/stepdefinitions/StepDefinitions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/PostActivity.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/PostActivity.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/framework/api/APIClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/framework/api/APIClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/framework/models/ActivityModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/framework/models/ActivityModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/framework/services/ActivitiesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/framework/services/ActivitiesService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.example.tests.runners.TestRunner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.example.tests.runners.TestRunner.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/example/tests/runners/TestRunner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/example/tests/stepdefinitions/StepDefinitions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/features/DeleteAcitivityByID.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/features/DeleteAcitivityByID.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/features/PostActivity.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/features/PostActivity.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684339520263</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Test commit">
+      <created>1684340115963</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1684340115963</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -108,6 +135,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test commit" />
+    <MESSAGE value="Added new cases + fixed POST Activity" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new cases + fixed POST Activity" />
   </component>
 </project>

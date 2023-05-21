@@ -1,7 +1,7 @@
 package org.example.framework.models;
 
 public class ActivityModel {
-    private int id;
+    private Integer id;
     private String title;
     private String dueDate;
     private boolean completed;
@@ -11,7 +11,7 @@ public class ActivityModel {
     // Constructors
     public ActivityModel() {
     }
-    public ActivityModel(int id, String title, String dueDate, boolean completed) {
+    public ActivityModel(Integer id, String title, String dueDate, boolean completed) {
         this.id = id;
         this.title = title;
         this.dueDate = dueDate;
@@ -19,11 +19,11 @@ public class ActivityModel {
     }
 
     // Getters and Setters
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

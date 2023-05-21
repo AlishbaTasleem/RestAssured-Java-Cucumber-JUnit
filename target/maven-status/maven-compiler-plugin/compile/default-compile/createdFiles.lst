@@ -1,0 +1,5 @@
+org/example/framework/models/ActivityModel.class
+org/example/framework/Main.class
+org/example/framework/configuration/Configuration.class
+org/example/framework/api/APIClient.class
+org/example/framework/services/ActivitiesService.class

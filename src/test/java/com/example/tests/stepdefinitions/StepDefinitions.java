@@ -3,10 +3,14 @@ package com.example.tests.stepdefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.example.framework.models.ActivityModel;
 import org.example.framework.services.ActivitiesService;
 import org.junit.Assert;
+
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.specification.RequestSpecification;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -19,6 +23,7 @@ public class StepDefinitions {
     private List<Map<String, Object>> activities;
     private Response response;
 
+
     @Given("the activity ID is {string}")
     public void theActivityIDIs(String id) {
         activityId = Integer.parseInt(id);
@@ -26,6 +31,7 @@ public class StepDefinitions {
 
     @Given("I have the activities API endpoint")
     public void iHaveActivitiesAPIEndpoint() {
+
         // No action needed as the API endpoint is already defined
     }
 
@@ -46,7 +52,7 @@ public class StepDefinitions {
         activities = response.jsonPath().getList("$");
 
         String responseBody = response.getBody().asString();
-        System.out.println("Response Body: " + responseBody);
+        System.out.println("Response: " + responseBody);
     }
 
     @When("I send a POST request to create a new activity")
@@ -56,12 +62,10 @@ public class StepDefinitions {
 
     @When("I send a DELETE request to delete the activity")
     public void iSendDELETERequestToDeleteActivity() {
-        System.out.println("activity id"+ activityId);
         response = ActivitiesService.deleteActivityById(activityId);
 
         String responseBody = response.getBody().asString();
-        System.out.println("Response Body: " + responseBody);
-        System.out.println(response.getStatusCode());
+        System.out.println("Response: " + responseBody);
     }
 
     @Then("the response status code should be {int}")
@@ -79,6 +83,9 @@ public class StepDefinitions {
                 Assert.assertEquals(404, actualStatusCode);
                 // Additional assertions or actions for status code 404
                 break;
+            case 400:
+                Assert.assertEquals(400, actualStatusCode);
+                break;
             // Add more cases for other status codes if needed
             default:
                 // Handle unexpected status codes
@@ -90,6 +97,9 @@ public class StepDefinitions {
     public void theResponseBodyShouldContainActivityDetails() {
         ActivityModel activity = response.as(ActivityModel.class);
         Assert.assertNotNull(activity);
+
+        String responseBody = response.getBody().asString();
+        System.out.println("Response: " + responseBody);
         // Additional assertions on the activity details if needed
     }
 
@@ -97,6 +107,7 @@ public class StepDefinitions {
     public void theResponseBodyShouldContainErrorMessage(String errorMessage) {
         String responseBody = response.getBody().asString();
         Assert.assertTrue(responseBody.contains(errorMessage));
+        System.out.println("Response: "+responseBody);
     }
 
     @Then("I should receive a list of activities")
@@ -110,10 +121,22 @@ public class StepDefinitions {
 
     @Then("the response body should contain the created activity details")
     public void theResponseBodyShouldContainCreatedActivityDetails() {
+
         ActivityModel createdActivity = response.as(ActivityModel.class);
         Assert.assertEquals(activity.getId(), createdActivity.getId());
         Assert.assertEquals(activity.getTitle(), createdActivity.getTitle());
         Assert.assertEquals(activity.getDueDate(), createdActivity.getDueDate());
         Assert.assertEquals(activity.isCompleted(), createdActivity.isCompleted());
+    }
+
+    @When("I send a PUT request to update the activity")
+    public void iSendPUTRequestToUpdateActivity() {
+        response = ActivitiesService.updateActivityById(activityId, activity);
+    }
+
+    @When("I send a POST request with an empty duedate to create a new activity")
+    public void iSendPOSTRequestWithEmptyIDToCreateNewActivity() {
+        activity.setDueDate(""); // Set the ID to empty or 0
+        response = ActivitiesService.createActivity(activity);
     }
 }

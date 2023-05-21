@@ -1,2 +1,4 @@
 /Users/alishbat/Documents/API-Automation-Challenge-AlishbaK/src/test/java/com/example/tests/runners/TestRunner.java
-/Users/alishbat/Documents/API-Automation-Challenge-AlishbaK/src/test/java/com/example/tests/stepdefinitions/GetAllActivitiesStepDefinitions.java
+/Users/alishbat/Documents/API-Automation-Challenge-AlishbaK/src/test/java/com/example/tests/stepdefinitions/StepDefinitions.java
+/Users/alishbat/Documents/API-Automation-Challenge-AlishbaK/src/test/java/com/example/tests/hooks/Hooks.java
+/Users/alishbat/Documents/API-Automation-Challenge-AlishbaK/src/test/java/com/example/tests/hooks/AllureHooks.java
