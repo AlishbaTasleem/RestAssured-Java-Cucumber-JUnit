@@ -6,7 +6,11 @@ import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.example.framework.models.ActivityModel;
+import org.example.framework.models.AuthorsModel;
+import org.example.framework.models.BooksModel;
 import org.example.framework.services.ActivitiesService;
+import org.example.framework.services.AuthorsService;
+import org.example.framework.services.BooksService;
 import org.junit.Assert;
 
 import io.restassured.builder.RequestSpecBuilder;
@@ -22,6 +26,12 @@ public class StepDefinitions {
     private ActivityModel activity;
     private List<Map<String, Object>> activities;
     private Response response;
+
+    private List<BooksModel> books;
+    private BooksModel selectedBook;
+    private List<AuthorsModel> authors;
+    private AuthorsModel selectedAuthor;
+
 
 
     @Given("the activity ID is {string}")
@@ -139,4 +149,62 @@ public class StepDefinitions {
         activity.setDueDate(""); // Set the ID to empty or 0
         response = ActivitiesService.createActivity(activity);
     }
+
+    @Given("I have the books API endpoint")
+    public void iHaveBooksAPIEndpoint() {
+        // No action needed as the API endpoint is already defined
+    }
+
+    @When("I send a GET request to retrieve all books")
+    public void iSendGETRequestToRetrieveAllBooks() {
+        response = BooksService.getAllBooks();
+        books = response.jsonPath().getList(".", BooksModel.class);
+
+        String responseBody = response.getBody().asString();
+        System.out.println("Response: " + responseBody);
+    }
+
+    @Then("I should receive a list of books")
+    public void iShouldReceiveListOfBooks() {
+        Assert.assertNotNull(books);
+        Assert.assertFalse(books.isEmpty());
+
+        int statusCode = response.getStatusCode();
+        Assert.assertEquals(200, statusCode);
+    }
+
+    @Then("I retrieve the first book ID and store it")
+    public void iRetrieveFirstBookIDAndStoreIt() {
+        selectedBook = books.get(0);
+
+        // Assert that the book ID was retrieved successfully
+        Assert.assertNotNull(selectedBook);
+
+        System.out.println("BOOK ID: " + selectedBook.getId());
+
+    }
+
+    @When("I send a GET request to retrieve the author by book ID")
+    public void iSendGETRequestToRetrieveAuthorByBookID() {
+        AuthorsService authorsService = new AuthorsService(selectedBook);
+        response = authorsService.getAuthorByBookID();
+    }
+
+    @Then("I should receive the author details")
+    public void iShouldReceiveAuthorDetails() {
+        Assert.assertNotNull(response);
+
+        int statusCode = response.getStatusCode();
+        Assert.assertEquals(200, statusCode);
+
+        // Handle the response body according to your requirements
+        String responseBody = response.getBody().asString();
+        System.out.println("Response: " + responseBody);
+
+        // Parse the response body if it contains author details
+        // and assign it to the selectedAuthor variable
+        // selectedAuthor = ...
+    }
+
+
 }
